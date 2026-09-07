@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Productos - Level-Up Gamer</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="barra-duoc">
+        COMUNIDAD DUOC · 20% de descuento con tu cuenta Duoc
+    </div>
+
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <span>LEVEL-UP</span>
+                <small>GAMER</small>
+            </a>
+
+
+            <div class="menu-principal">
+
+                <a href="index.html">Inicio</a>
+
+                <a href="productos.html" class="activo">
+                    Productos
+                </a>
+
+                <a href="nosotros.html">Nosotros</a>
+
+                <a href="blog.html">Blog</a>
+
+                <a href="contacto.html">Contacto</a>
+
+            </div>
+
+
+            <div class="menu-usuario">
+
+                <a href="login.html">Ingresar</a>
+
+                <a href="registro.html">Registrarse</a>
+
+                <a href="carrito.html"
+                   class="carrito"
+                   aria-label="Ver carrito">
+
+                    <svg class="carrito-icono"
+                         xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor">
+
+                        <path d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6"></path>
+
+                        <circle cx="10"
+                                cy="19"
+                                r="1">
+                        </circle>
+
+                        <circle cx="18"
+                                cy="19"
+                                r="1">
+                        </circle>
+
+                    </svg>
+
+                    <span id="contador-carrito">0</span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <section class="catalogo">
+
+            <div class="ruta-productos">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span>Encuentra tu siguiente nivel</span>
+            </div>
+
+
+            <div class="encabezado-productos">
+
+                <h1>Encuentra tu siguiente nivel</h1>
+
+                <p>
+                    Explora nuestro catálogo y prepara tu próxima partida.
+                </p>
+
+            </div>
+
+
+            <div class="filtros-productos">
+
+                <div class="campo-filtro">
+
+                    <label for="buscar-producto">
+                        Buscar producto
+                    </label>
+
+                    <input
+                        type="text"
+                        id="buscar-producto"
+                        placeholder="Nombre del producto">
+
+                </div>
+
+
+                <div class="campo-filtro">
+
+                    <label for="filtro-categoria">
+                        Categoría
+                    </label>
+
+                    <select id="filtro-categoria">
+
+                        <option value="todos">
+                            Todas las categorías
+                        </option>
+
+                        <option value="Juegos de Mesa">
+                            Juegos de Mesa
+                        </option>
+
+                        <option value="Accesorios">
+                            Accesorios
+                        </option>
+
+                        <option value="Consolas">
+                            Consolas
+                        </option>
+
+                        <option value="Computadores Gamers">
+                            Computadores Gamers
+                        </option>
+
+                        <option value="Sillas Gamers">
+                            Sillas Gamers
+                        </option>
+
+                        <option value="Mouse">
+                            Mouse
+                        </option>
+
+                        <option value="Mousepad">
+                            Mousepad
+                        </option>
+
+                        <option value="Poleras Personalizadas">
+                            Poleras Personalizadas
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="campo-filtro">
+
+                    <label for="orden-precio">
+                        Ordenar por precio
+                    </label>
+
+                    <select id="orden-precio">
+
+                        <option value="normal">
+                            Orden del catálogo
+                        </option>
+
+                        <option value="menor">
+                            Precio: menor a mayor
+                        </option>
+
+                        <option value="mayor">
+                            Precio: mayor a menor
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <p id="cantidad-productos"
+               class="cantidad-productos">
+                10 productos
+            </p>
+
+
+            <div id="lista-productos"
+                 class="productos-grid">
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-contenido">
+
+            <div>
+
+                <h3>LEVEL-UP</h3>
+
+                <p>GAMER</p>
+
+                <p>
+                    Tu siguiente nivel empieza aquí.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+
+                <a href="blog.html">
+                    Comunidad
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 LEVEL-UP GAMER · Proyecto académico.
+        </p>
+
+    </footer>
+
+
+    <script src="assets/js/productos.js"></script>
+    <script src="assets/js/carrito.js"></script>
+
+</body>
+
+</html>
