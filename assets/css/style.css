@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
 
-
-/* =========================
-   CONFIGURACIÓN GENERAL
-========================= */
-
+/* Configuracion General*/
 * {
     box-sizing: border-box;
 }
@@ -28,13 +24,9 @@ p {
     margin-top: 0;
 }
 
-
-/* =========================
-   BARRA DUOC
-========================= */
-
+/* Barra porcentaje Duoc*/
 .barra-duoc {
-    background-color: #071b09;
+    background-color: #133917;
     color: #39ff14;
     text-align: center;
     padding: 10px;
@@ -43,10 +35,8 @@ p {
 }
 
 
-/* =========================
-   HEADER / NAVBAR
-========================= */
 
+/* Header y navbar*/
 header {
     background-color: #050505;
     border-bottom: 1px solid #2c3136;
@@ -64,14 +54,14 @@ header {
 }
 
 
-/* LOGO */
+/* Logo */
 
 .logo {
     display: flex;
     flex-direction: column;
 
     font-family: 'Rajdhani', sans-serif;
-    font-weight: 700;
+    font-weight: 70;
 }
 
 .logo span {
@@ -100,34 +90,64 @@ header {
     color: #d6d6d6;
     font-weight: 500;
 
-    transition: color 0.2s ease;
+    transition: color s ease;
 }
 
 .menu-principal a:hover,
 .menu-usuario a:hover {
-    color: #39ff14;
+    color: #97fd85;
 }
 
 
 /* CARRITO */
 
 .carrito {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 44px;
+
     border: 1px solid #343a40;
     border-radius: 6px;
-    padding: 10px 14px;
+
+    color: #ffffff;
+}
+
+.carrito:hover {
+    border-color: #39ff14;
+    color: #39ff14;
+}
+
+.carrito-icono {
+    width: 25px;
+    height: 25px;
+
+    stroke-width: 1.8;
 }
 
 #contador-carrito {
-    display: inline-block;
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    min-width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     background-color: #39ff14;
     color: #000000;
 
-    padding: 3px 8px;
-    margin-left: 5px;
+    border-radius: 50%;
 
-    border-radius: 20px;
-
+    font-size: 12px;
     font-weight: 700;
 }
 
@@ -148,21 +168,35 @@ main {
 ========================= */
 
 .hero {
+    min-height: 650px;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.90) 0%,
+            rgba(0, 0, 0, 0.65) 45%,
+            rgba(0, 0, 0, 0.15) 100%
+        ),
+        url("../img/foto1.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
-    gap: 70px;
+    padding: 60px;
 
-    min-height: 520px;
+    border-radius: 10px;
+
     margin-bottom: 60px;
 }
-
 
 /* TEXTO HERO */
 
 .hero-contenido {
-    flex: 1;
+    max-width: 560px;
 }
 
 .hero-etiqueta {
@@ -177,7 +211,7 @@ main {
 .hero h1 {
     font-family: 'Rajdhani', sans-serif;
 
-    font-size: 72px;
+    font-size: 64px;
     line-height: 0.95;
 
     margin-bottom: 28px;
