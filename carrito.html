@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Tu carrito - Level-Up Gamer</title>
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
+</head>
+
+
+<body>
+
+    <!-- BARRA DUOC -->
+
+    <div class="barra-duoc">
+        COMUNIDAD DUOC · 20% de descuento con tu cuenta Duoc
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <!-- LOGO -->
+
+            <a
+                href="index.html"
+                class="logo">
+
+                <span>LEVEL-UP</span>
+                <small>GAMER</small>
+
+            </a>
+
+
+            <!-- MENÚ PRINCIPAL -->
+
+            <div class="menu-principal">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="productos.html">
+                    Productos
+                </a>
+
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+
+                <a href="blog.html">
+                    Blog
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+
+            <!-- MENÚ USUARIO -->
+
+            <div class="menu-usuario">
+
+                <a href="login.html">
+                    Ingresar
+                </a>
+
+                <a href="registro.html">
+                    Registrarse
+                </a>
+
+
+                <!-- CARRITO -->
+
+                <a
+                    href="carrito.html"
+                    class="carrito"
+                    aria-label="Ver carrito">
+
+                    <svg
+                        class="carrito-icono"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor">
+
+                        <path
+                            d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6">
+                        </path>
+
+                        <circle
+                            cx="10"
+                            cy="19"
+                            r="1">
+                        </circle>
+
+                        <circle
+                            cx="18"
+                            cy="19"
+                            r="1">
+                        </circle>
+
+                    </svg>
+
+
+                    <span id="contador-carrito">
+                        0
+                    </span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main>
+
+        <section class="carrito-pagina">
+
+
+            <!-- RUTA -->
+
+            <div class="ruta-carrito">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <span>/</span>
+
+                <span>
+                    Tu carrito
+                </span>
+
+            </div>
+
+
+
+            <!-- TÍTULO -->
+
+            <h1>
+                Tu carrito
+            </h1>
+
+
+
+            <!-- CARRITO -->
+
+            <div class="carrito-contenido">
+
+
+                <!-- PRODUCTOS -->
+
+                <div class="carrito-productos">
+
+                    <!--
+                        JavaScript mostrará aquí
+                        los productos agregados.
+                    -->
+
+                    <div id="lista-carrito">
+                    </div>
+
+
+                    <a
+                        href="productos.html"
+                        class="seguir-comprando">
+
+                        ← Seguir comprando
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- RESUMEN -->
+
+                <aside class="resumen-carrito">
+
+                    <h2>
+                        Resumen del carrito
+                    </h2>
+
+
+                    <!-- SUBTOTAL -->
+
+                    <div class="resumen-linea">
+
+                        <span>
+                            Subtotal
+                        </span>
+
+                        <span id="subtotal-carrito">
+                            $0
+                        </span>
+
+                    </div>
+
+
+                    <!-- DESCUENTO -->
+
+                    <div class="resumen-linea">
+
+                        <span>
+                            Descuento Duoc (20%)
+                        </span>
+
+                        <span id="descuento-carrito">
+                            -$0
+                        </span>
+
+                    </div>
+
+
+                    <!-- TOTAL -->
+
+                    <div class="resumen-total">
+
+                        <span>
+                            Total productos
+                        </span>
+
+                        <span id="total-carrito">
+                            $0
+                        </span>
+
+                    </div>
+
+
+                    <!-- MENSAJE DUOC -->
+
+                    <p class="mensaje-duoc-carrito">
+
+                        Inicia sesión con tu cuenta Duoc
+                        para aplicar el beneficio.
+
+                    </p>
+
+
+                    <!-- AVISO -->
+
+                    <p class="mensaje-demostracion">
+
+                        Carrito de demostración.
+                        No realiza cobros ni calcula despacho.
+
+                    </p>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-contenido">
+
+            <div>
+
+                <h3>
+                    LEVEL-UP
+                </h3>
+
+                <p>
+                    GAMER
+                </p>
+
+                <p>
+                    Tu siguiente nivel empieza aquí.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+
+                <a href="blog.html">
+                    Comunidad
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 LEVEL-UP GAMER · Proyecto académico.
+        </p>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="assets/js/productos.js"></script>
+
+    <script src="assets/js/carrito.js"></script>
+
+</body>
+
+</html>

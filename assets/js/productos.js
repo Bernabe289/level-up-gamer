@@ -7,7 +7,9 @@ const productos = [
         categoria: "Juegos de Mesa",
         precio: 29990,
         imagen: "assets/img/catan.jpg",
-        descripcion: "Un clásico juego de estrategia donde los jugadores compiten por colonizar y expandirse en la isla de Catan. Ideal para 3 a 4 jugadores."
+        descripcion: "Un clásico juego de estrategia donde los jugadores compiten por colonizar y expandirse en la isla de Catan. Ideal para 3 a 4 jugadores.",
+        fabricante: "CATAN Studio",
+        stock: 12
     },
 
     {
@@ -16,7 +18,9 @@ const productos = [
         categoria: "Juegos de Mesa",
         precio: 24990,
         imagen: "assets/img/carcassonne.jpg",
-        descripcion: "Juego de colocación de fichas donde los jugadores construyen el paisaje alrededor de la fortaleza medieval de Carcassonne."
+        descripcion: "Juego de colocación de fichas donde los jugadores construyen el paisaje alrededor de la fortaleza medieval de Carcassonne.",
+        fabricante: "Z-Man Games",
+        stock: 9
     },
 
     {
@@ -25,7 +29,9 @@ const productos = [
         categoria: "Accesorios",
         precio: 59990,
         imagen: "assets/img/control-xbox.jpg",
-        descripcion: "Control inalámbrico compatible con consolas Xbox y PC, con respuesta táctil mejorada y botones mapeables."
+        descripcion: "Control inalámbrico compatible con consolas Xbox y PC, con respuesta táctil mejorada y botones mapeables.",
+        fabricante: "Microsoft",
+        stock: 15
     },
 
     {
@@ -34,7 +40,9 @@ const productos = [
         categoria: "Accesorios",
         precio: 79990,
         imagen: "assets/img/hyperx-cloud2.jpg",
-        descripcion: "Auriculares con sonido envolvente, micrófono desmontable y almohadillas diseñadas para largas sesiones de juego."
+        descripcion: "Auriculares con sonido envolvente, micrófono desmontable y almohadillas diseñadas para largas sesiones de juego.",
+        fabricante: "HyperX",
+        stock: 8
     },
 
     {
@@ -43,7 +51,9 @@ const productos = [
         categoria: "Consolas",
         precio: 549990,
         imagen: "assets/img/ps5.jpg",
-        descripcion: "Consola de última generación de Sony con gráficos de alta calidad y tiempos de carga ultrarrápidos."
+        descripcion: "Consola de última generación de Sony con gráficos de alta calidad y tiempos de carga ultrarrápidos.",
+        fabricante: "Sony",
+        stock: 5
     },
 
     {
@@ -52,7 +62,9 @@ const productos = [
         categoria: "Computadores Gamers",
         precio: 1299990,
         imagen: "assets/img/asus-rog-strix.jpg",
-        descripcion: "Equipo gamer de alto rendimiento diseñado para ofrecer una experiencia fluida en juegos exigentes."
+        descripcion: "Equipo gamer de alto rendimiento diseñado para ofrecer una experiencia fluida en juegos exigentes.",
+        fabricante: "ASUS",
+        stock: 4
     },
 
     {
@@ -61,7 +73,9 @@ const productos = [
         categoria: "Sillas Gamers",
         precio: 349990,
         imagen: "assets/img/secretlab-titan.jpg",
-        descripcion: "Silla gamer ergonómica y ajustable, diseñada para mantener la comodidad durante sesiones prolongadas."
+        descripcion: "Silla gamer ergonómica y ajustable, diseñada para mantener la comodidad durante sesiones prolongadas.",
+        fabricante: "Secretlab",
+        stock: 7
     },
 
     {
@@ -70,7 +84,9 @@ const productos = [
         categoria: "Mouse",
         precio: 49990,
         imagen: "assets/img/logitech-g502.jpg",
-        descripcion: "Mouse gamer con sensor de alta precisión y botones personalizables para un mayor control."
+        descripcion: "Mouse gamer con sensor de alta precisión y botones personalizables para un mayor control.",
+        fabricante: "Logitech",
+        stock: 18
     },
 
     {
@@ -79,7 +95,9 @@ const productos = [
         categoria: "Mousepad",
         precio: 29990,
         imagen: "assets/img/razer-goliathus.jpg",
-        descripcion: "Mousepad extendido con superficie uniforme e iluminación RGB personalizable."
+        descripcion: "Mousepad extendido con superficie uniforme e iluminación RGB personalizable.",
+        fabricante: "Razer",
+        stock: 20
     },
 
     {
@@ -88,7 +106,9 @@ const productos = [
         categoria: "Poleras Personalizadas",
         precio: 14990,
         imagen: "assets/img/polera-levelup.jpg",
-        descripcion: "Polera gamer personalizable con gamer tag o diseño favorito."
+        descripcion: "Polera gamer personalizable con gamer tag o diseño favorito.",
+        fabricante: "Level-Up Gamer",
+        stock: 25
     }
 ];
 
@@ -272,6 +292,8 @@ if (listaProductos) {
     );
 
 }
+
+
 /* detalle del producto */
 
 const detalleNombre =
@@ -284,6 +306,7 @@ if (detalleNombre) {
 
     const idProducto =
         parametros.get("id");
+
 
     const productoDetalle =
         productos.find(function(producto) {
@@ -301,20 +324,40 @@ if (detalleNombre) {
         document.getElementById("detalle-imagen").alt =
             productoDetalle.nombre;
 
+
         document.getElementById("detalle-categoria").textContent =
             productoDetalle.categoria;
+
 
         document.getElementById("detalle-nombre").textContent =
             productoDetalle.nombre;
 
-        document.getElementById("detalle-precio").textContent =
-            "$" + productoDetalle.precio.toLocaleString("es-CL");
+
+        document.getElementById("detalle-codigo").textContent =
+            productoDetalle.id;
+
 
         document.getElementById("detalle-descripcion").textContent =
             productoDetalle.descripcion;
 
-        document.getElementById("ruta-producto").textContent =
-            productoDetalle.nombre;
+
+        document.getElementById("detalle-fabricante").textContent =
+            productoDetalle.fabricante;
+
+
+        document.getElementById("detalle-precio").textContent =
+            "$" + productoDetalle.precio.toLocaleString("es-CL");
+
+
+        document.getElementById("detalle-stock").textContent =
+            productoDetalle.stock + " unidades disponibles";
+
+
+        const cantidad =
+            document.getElementById("cantidad");
+
+        cantidad.max =
+            productoDetalle.stock;
 
 
         const botonDetalle =
@@ -326,25 +369,6 @@ if (detalleNombre) {
 
         document.title =
             productoDetalle.nombre + " - Level-Up Gamer";
-
-
-        const relacionados =
-            productos
-                .filter(function(producto) {
-
-                    return producto.id !== productoDetalle.id;
-
-                })
-                .slice(0, 4);
-
-
-        const contenedorRelacionados =
-            document.getElementById("lista-relacionados");
-
-        mostrarProductos(
-            relacionados,
-            contenedorRelacionados
-        );
 
     } else {
 
