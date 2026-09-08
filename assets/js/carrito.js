@@ -540,6 +540,33 @@ if (listaCarrito) {
         }
     );
 
+    /* Finalizar compra */
+
+    const botonFinalizar =
+        document.getElementById("boton-finalizar");
+
+    if (botonFinalizar) {
+
+        botonFinalizar.addEventListener("click", function() {
+
+            if (carrito.length === 0) {
+                alert("Tu carrito está vacío.");
+                return;
+            }
+
+            alert("Compra simulada realizada correctamente.");
+
+            carrito = [];
+
+            guardarCarrito();
+
+            actualizarContadorCarrito();
+
+            mostrarCarrito();
+        });
+
+    }
+
 }
 
 

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Registro - Level-Up Gamer</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="barra-duoc">
+        COMUNIDAD DUOC · 20% de descuento con tu cuenta Duoc
+    </div>
+
+    <header>
+
+        <nav class="navbar">
+
+            <a href="index.html" class="logo">
+                <span>LEVEL-UP</span>
+                <small>GAMER</small>
+            </a>
+
+            <div class="menu-principal">
+                <a href="index.html">Inicio</a>
+                <a href="productos.html">Productos</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="blog.html">Blog</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+
+            <div class="menu-usuario">
+
+                <a href="login.html">Ingresar</a>
+
+                <a href="registro.html" class="activo">
+                    Registrarse
+                </a>
+
+                <a href="carrito.html"
+                   class="carrito"
+                   aria-label="Ver carrito">
+
+                    <svg class="carrito-icono"
+                         xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor">
+
+                        <path d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6"></path>
+
+                        <circle cx="10" cy="19" r="1"></circle>
+                        <circle cx="18" cy="19" r="1"></circle>
+
+                    </svg>
+
+                    <span id="contador-carrito">0</span>
+
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main class="registro-main">
+
+        <section class="registro-contenedor">
+
+            <div class="ruta-productos">
+                <a href="index.html">Inicio</a>
+                <span>/</span>
+                <span>Únete a LEVEL-UP</span>
+            </div>
+
+
+            <div class="encabezado-registro">
+
+                <p class="hero-etiqueta">
+                    CREA TU CUENTA
+                </p>
+
+                <h1>Únete a LEVEL-UP</h1>
+
+                <p>
+                    Crea tu cuenta y empieza a armar tu próximo setup.
+                </p>
+
+            </div>
+
+
+            <form id="form-registro"
+                  class="form-registro"
+                  novalidate>
+
+                <p class="mensaje-formulario">
+                    Todos los campos son obligatorios.
+                </p>
+
+
+                <div class="registro-grid">
+
+                    <div class="campo-registro">
+
+                        <label for="run">
+                            RUN
+                        </label>
+
+                        <input
+                            type="text"
+                            id="run"
+                            maxlength="9"
+                            placeholder="19011022K">
+
+                        <small>
+                            Sin puntos ni guion. Ejemplo: 19011022K.
+                        </small>
+
+                        <p class="error" id="error-run"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro">
+
+                        <label for="nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            maxlength="50">
+
+                        <p class="error" id="error-nombre"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro">
+
+                        <label for="apellidos">
+                            Apellidos
+                        </label>
+
+                        <input
+                            type="text"
+                            id="apellidos"
+                            maxlength="100">
+
+                        <p class="error" id="error-apellidos"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro">
+
+                        <label for="correo">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="correo"
+                            maxlength="100">
+
+                        <small>
+                            @duoc.cl, @profesor.duoc.cl o @gmail.com
+                        </small>
+
+                        <p class="error" id="error-correo"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro">
+
+                        <label for="contrasena">
+                            Contraseña
+                        </label>
+
+                        <input
+                            type="password"
+                            id="contrasena"
+                            maxlength="10">
+
+                        <small>
+                            De 4 a 10 caracteres.
+                        </small>
+
+                        <p class="error" id="error-contrasena"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro">
+
+                        <label for="repetir-contrasena">
+                            Repetir contraseña
+                        </label>
+
+                        <input
+                            type="password"
+                            id="repetir-contrasena"
+                            maxlength="10">
+
+                        <p class="error" id="error-repetir"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro">
+
+                        <label for="fecha-nacimiento">
+                            Fecha de nacimiento
+                        </label>
+
+                        <input
+                            type="date"
+                            id="fecha-nacimiento">
+
+                        <small>
+                            Debes tener al menos 18 años.
+                        </small>
+
+                        <p class="error" id="error-fecha"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro">
+
+                        <label for="region">
+                            Región
+                        </label>
+
+                        <select id="region">
+
+                            <option value="">
+                                Selecciona una región
+                            </option>
+
+                        </select>
+
+                        <p class="error" id="error-region"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro">
+
+                        <label for="comuna">
+                            Comuna
+                        </label>
+
+                        <select id="comuna" disabled>
+
+                            <option value="">
+                                Selecciona una comuna
+                            </option>
+
+                        </select>
+
+                        <p class="error" id="error-comuna"></p>
+
+                    </div>
+
+
+                    <div class="campo-registro campo-completo">
+
+                        <label for="direccion">
+                            Dirección
+                        </label>
+
+                        <input
+                            type="text"
+                            id="direccion"
+                            maxlength="300">
+
+                        <p class="error" id="error-direccion"></p>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="boton-registro">
+
+                    Crear cuenta
+
+                </button>
+
+
+                <p
+                    id="registro-exitoso"
+                    class="registro-exitoso">
+                </p>
+
+
+                <p class="texto-login">
+
+                    ¿Ya tienes cuenta?
+
+                    <a href="login.html">
+                        Iniciar sesión
+                    </a>
+
+                </p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-contenido">
+
+            <div>
+
+                <h3>LEVEL-UP</h3>
+
+                <p>GAMER</p>
+
+                <p>
+                    Tu siguiente nivel empieza aquí.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="nosotros.html">Nosotros</a>
+                <a href="blog.html">Comunidad</a>
+                <a href="contacto.html">Contacto</a>
+
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 LEVEL-UP GAMER · Proyecto académico.
+        </p>
+
+    </footer>
+
+
+    <script src="assets/js/carrito.js"></script>
+    <script src="assets/js/validaciones.js"></script>
+
+</body>
+
+</html>
