@@ -116,6 +116,25 @@ El sitio también contiene:
 
 ---
 
+## Integrantes
+
+-Pablo Rico
+-Bastian Diaz
+-Gabriel Bustamante
+-Cristian Flores
+
+## Asignatura
+
+DSY1104 - Desarrollo Fullstack ll
+
+## Declaracion de IA
+
+Durante el desarrollo del proyecto se utilizó ChatGPT de OpenAI(Astra) como herramienta de apoyo para resolver dudas, revisar código y orientar algunas implementaciones.
+El mayor uso de Inteligencia Artificial se concentró en la construcción y revisión de validaciones en JavaScript y en algunos ajustes de CSS para mejorar la presentación y consistencia visual.
+Las decisiones finales, integración, pruebas y revisión del funcionamiento del proyecto y estructura fueron realizadas por el equipo.
+
+---
+
 ## Estructura del proyecto
 
 ```text
