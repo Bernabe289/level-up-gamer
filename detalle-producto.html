@@ -3,11 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Detalle del producto - Level-Up Gamer</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
 </head>
 
 <body>
@@ -30,9 +34,17 @@
             <div class="menu-principal">
 
                 <a href="index.html">Inicio</a>
-                <a href="productos.html" class="activo">Productos</a>
+
+                <a
+                    href="productos.html"
+                    class="activo">
+                    Productos
+                </a>
+
                 <a href="nosotros.html">Nosotros</a>
+
                 <a href="blog.html">Blog</a>
+
                 <a href="contacto.html">Contacto</a>
 
             </div>
@@ -40,23 +52,85 @@
 
             <div class="menu-usuario">
 
-                <a href="login.html">Ingresar</a>
-                <a href="registro.html">Registrarse</a>
+                <a
+                    href="login.html"
+                    id="link-ingresar">
 
-                <a href="carrito.html"
-                   class="carrito"
-                   aria-label="Ver carrito">
+                    Ingresar
 
-                    <svg class="carrito-icono"
-                         xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor">
+                </a>
 
-                        <path d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6"></path>
 
-                        <circle cx="10" cy="19" r="1"></circle>
-                        <circle cx="18" cy="19" r="1"></circle>
+                <a
+                    href="registro.html"
+                    id="link-registro">
+
+                    Registrarse
+
+                </a>
+
+
+                <div
+                    id="usuario-sesion"
+                    class="usuario-sesion">
+
+                    <svg
+                        class="usuario-icono"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor">
+
+                        <circle
+                            cx="12"
+                            cy="8"
+                            r="4">
+                        </circle>
+
+                        <path
+                            d="M4 21c0-4 3.6-7 8-7s8 3 8 7">
+                        </path>
+
+                    </svg>
+
+                    <span id="nombre-usuario"></span>
+
+                    <a
+                        href="#"
+                        id="cerrar-sesion">
+                        Cerrar sesión
+                    </a>
+
+                </div>
+
+
+                <a
+                    href="carrito.html"
+                    class="carrito"
+                    aria-label="Ver carrito">
+
+                    <svg
+                        class="carrito-icono"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor">
+
+                        <path
+                            d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6">
+                        </path>
+
+                        <circle
+                            cx="10"
+                            cy="19"
+                            r="1">
+                        </circle>
+
+                        <circle
+                            cx="18"
+                            cy="19"
+                            r="1">
+                        </circle>
 
                     </svg>
 
@@ -73,112 +147,116 @@
 
     <main>
 
-    <section class="detalle-producto">
+        <section class="detalle-producto">
 
-        <a href="productos.html" class="volver-productos">
-            ← Volver a productos
-        </a>
+            <a
+                href="productos.html"
+                class="volver-productos">
 
+                ← Volver a productos
 
-        <div class="detalle-contenido">
-
-            <!-- IMAGEN -->
-            <div class="detalle-imagen">
-
-                <img
-                    id="detalle-imagen"
-                    src=""
-                    alt="Producto">
-
-            </div>
+            </a>
 
 
-            <!-- INFORMACIÓN -->
-            <div class="detalle-informacion">
+            <div class="detalle-contenido">
 
-                <p
-                    id="detalle-categoria"
-                    class="producto-categoria">
-                </p>
+                <!-- IMAGEN -->
+                <div class="detalle-imagen">
 
-
-                <h1 id="detalle-nombre">
-                    Producto
-                </h1>
-
-
-                <p class="detalle-dato">
-                    Código:
-                    <span id="detalle-codigo"></span>
-                </p>
-
-
-                <p
-                    id="detalle-descripcion"
-                    class="detalle-descripcion">
-                </p>
-
-
-                <p class="detalle-dato">
-                    Fabricante:
-                    <span id="detalle-fabricante"></span>
-                </p>
-
-
-                <p
-                    id="detalle-precio"
-                    class="detalle-precio">
-                    $0
-                </p>
-
-
-                <p
-                    id="detalle-stock"
-                    class="detalle-stock">
-                </p>
-
-
-                <div class="detalle-compra">
-
-                    <div class="cantidad-producto">
-
-                        <label for="cantidad">
-                            Cantidad
-                        </label>
-
-                        <input
-                            id="cantidad"
-                            type="number"
-                            value="1"
-                            min="1">
-
-                    </div>
-
-
-                    <button
-                        id="boton-detalle-carrito"
-                        class="boton-agregar"
-                        type="button">
-
-                        Añadir al carrito
-
-                    </button>
+                    <img
+                        id="detalle-imagen"
+                        src=""
+                        alt="Producto">
 
                 </div>
 
 
-                <p class="mensaje-duoc">
-                    Si tienes una cuenta Duoc, inicia sesión para aplicar
-                    el 20% de descuento en tu carrito.
-                </p>
+                <!-- INFORMACIÓN -->
+                <div class="detalle-informacion">
+
+                    <p
+                        id="detalle-categoria"
+                        class="producto-categoria">
+                    </p>
+
+
+                    <h1 id="detalle-nombre">
+                        Producto
+                    </h1>
+
+
+                    <p class="detalle-dato">
+                        Código:
+                        <span id="detalle-codigo"></span>
+                    </p>
+
+
+                    <p
+                        id="detalle-descripcion"
+                        class="detalle-descripcion">
+                    </p>
+
+
+                    <p class="detalle-dato">
+                        Fabricante:
+                        <span id="detalle-fabricante"></span>
+                    </p>
+
+
+                    <p
+                        id="detalle-precio"
+                        class="detalle-precio">
+                        $0
+                    </p>
+
+
+                    <p
+                        id="detalle-stock"
+                        class="detalle-stock">
+                    </p>
+
+
+                    <div class="detalle-compra">
+
+                        <div class="cantidad-producto">
+
+                            <label for="cantidad">
+                                Cantidad
+                            </label>
+
+                            <input
+                                id="cantidad"
+                                type="number"
+                                value="1"
+                                min="1">
+
+                        </div>
+
+
+                        <button
+                            id="boton-detalle-carrito"
+                            class="boton-agregar"
+                            type="button">
+
+                            Añadir al carrito
+
+                        </button>
+
+                    </div>
+
+
+                    <p class="mensaje-duoc">
+                        Si tienes una cuenta Duoc, inicia sesión para aplicar
+                        el 20% de descuento en tu carrito.
+                    </p>
+
+                </div>
 
             </div>
 
-        </div>
+        </section>
 
-    </section>
-
-</main>
+    </main>
 
 
     <footer>
@@ -200,9 +278,17 @@
 
             <div class="footer-links">
 
-                <a href="nosotros.html">Nosotros</a>
-                <a href="blog.html">Comunidad</a>
-                <a href="contacto.html">Contacto</a>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+
+                <a href="blog.html">
+                    Comunidad
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
 
             </div>
 
@@ -218,6 +304,7 @@
 
     <script src="assets/js/productos.js"></script>
     <script src="assets/js/carrito.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 

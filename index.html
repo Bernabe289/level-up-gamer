@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Level-Up Gamer</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
 </head>
 
 
@@ -52,22 +55,80 @@
             <!-- USUARIO Y CARRITO -->
             <div class="menu-usuario">
 
-                <a href="login.html">Ingresar</a>
+                <a
+                    href="login.html"
+                    id="link-ingresar">
+                    Ingresar
+                </a>
 
-                <a href="registro.html">Registrarse</a>
+                <a
+                    href="registro.html"
+                    id="link-registro">
+                    Registrarse
+                </a>
 
-                <a href="carrito.html" class="carrito" aria-label="Ver carrito">
 
-                    <svg class="carrito-icono"
+                <div
+                    id="usuario-sesion"
+                    class="usuario-sesion">
+
+                    <svg
+                        class="usuario-icono"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor">
 
-                        <path d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6"></path>
+                        <circle
+                            cx="12"
+                            cy="8"
+                            r="4">
+                        </circle>
 
-                        <circle cx="10" cy="19" r="1"></circle>
-                        <circle cx="18" cy="19" r="1"></circle>
+                        <path
+                            d="M4 21c0-4 3.6-7 8-7s8 3 8 7">
+                        </path>
+
+                    </svg>
+
+                    <span id="nombre-usuario"></span>
+
+                    <a
+                        href="#"
+                        id="cerrar-sesion">
+                        Cerrar sesión
+                    </a>
+
+                </div>
+
+
+                <a
+                    href="carrito.html"
+                    class="carrito"
+                    aria-label="Ver carrito">
+
+                    <svg
+                        class="carrito-icono"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor">
+
+                        <path
+                            d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6">
+                        </path>
+
+                        <circle
+                            cx="10"
+                            cy="19"
+                            r="1">
+                        </circle>
+
+                        <circle
+                            cx="18"
+                            cy="19"
+                            r="1">
+                        </circle>
 
                     </svg>
 
@@ -107,18 +168,21 @@
 
                 <div class="hero-botones">
 
-                    <a href="productos.html" class="boton-principal">
+                    <a
+                        href="productos.html"
+                        class="boton-principal">
                         Explorar productos
                     </a>
 
-                    <a href="nosotros.html" class="boton-secundario">
+                    <a
+                        href="nosotros.html"
+                        class="boton-secundario">
                         Conoce la comunidad
                     </a>
 
                 </div>
 
             </div>
-
 
         </section>
 
@@ -158,12 +222,9 @@
             </div>
 
 
-            <!--
-                Los productos se cargarán después
-                desde JavaScript.
-            -->
-            <div id="productos-destacados"
-                 class="productos-grid">
+            <div
+                id="productos-destacados"
+                class="productos-grid">
             </div>
 
         </section>
@@ -190,8 +251,9 @@
             </div>
 
 
-            <a href="registro.html"
-               class="boton-principal">
+            <a
+                href="registro.html"
+                class="boton-principal">
 
                 Crear mi cuenta
 
@@ -221,11 +283,17 @@
 
             <div class="footer-links">
 
-                <a href="nosotros.html">Nosotros</a>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
 
-                <a href="blog.html">Comunidad</a>
+                <a href="blog.html">
+                    Comunidad
+                </a>
 
-                <a href="contacto.html">Contacto</a>
+                <a href="contacto.html">
+                    Contacto
+                </a>
 
             </div>
 

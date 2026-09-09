@@ -712,6 +712,13 @@ if (formulario) {
 
         comuna.disabled = true;
 
+        /* Ir al login */
+
+        setTimeout(function() {
+
+            window.location.href = "login.html";
+
+        }, 1500);
     });
 
 }

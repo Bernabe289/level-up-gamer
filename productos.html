@@ -4,13 +4,17 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
     <title>Productos - Level-Up Gamer</title>
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css">
 </head>
+
 
 <body>
 
@@ -31,52 +35,113 @@
 
             <div class="menu-principal">
 
-                <a href="index.html">Inicio</a>
+                <a href="index.html">
+                    Inicio
+                </a>
 
-                <a href="productos.html" class="activo">
+                <a
+                    href="productos.html"
+                    class="activo">
                     Productos
                 </a>
 
-                <a href="nosotros.html">Nosotros</a>
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
 
-                <a href="blog.html">Blog</a>
+                <a href="blog.html">
+                    Blog
+                </a>
 
-                <a href="contacto.html">Contacto</a>
+                <a href="contacto.html">
+                    Contacto
+                </a>
 
             </div>
 
 
             <div class="menu-usuario">
 
-                <a href="login.html">Ingresar</a>
+                <a
+                    href="login.html"
+                    id="link-ingresar">
+                    Ingresar
+                </a>
 
-                <a href="registro.html">Registrarse</a>
+                <a
+                    href="registro.html"
+                    id="link-registro">
+                    Registrarse
+                </a>
 
-                <a href="carrito.html"
-                   class="carrito"
-                   aria-label="Ver carrito">
 
-                    <svg class="carrito-icono"
-                         xmlns="http://www.w3.org/2000/svg"
-                         viewBox="0 0 24 24"
-                         fill="none"
-                         stroke="currentColor">
+                <div
+                    id="usuario-sesion"
+                    class="usuario-sesion">
 
-                        <path d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6"></path>
+                    <svg
+                        class="usuario-icono"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor">
 
-                        <circle cx="10"
-                                cy="19"
-                                r="1">
+                        <circle
+                            cx="12"
+                            cy="8"
+                            r="4">
                         </circle>
 
-                        <circle cx="18"
-                                cy="19"
-                                r="1">
+                        <path
+                            d="M4 21c0-4 3.6-7 8-7s8 3 8 7">
+                        </path>
+
+                    </svg>
+
+                    <span id="nombre-usuario"></span>
+
+                    <a
+                        href="#"
+                        id="cerrar-sesion">
+                        Cerrar sesión
+                    </a>
+
+                </div>
+
+
+                <a
+                    href="carrito.html"
+                    class="carrito"
+                    aria-label="Ver carrito">
+
+                    <svg
+                        class="carrito-icono"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor">
+
+                        <path
+                            d="M3 3h2l2.4 10.2a2 2 0 0 0 2 1.5h7.7a2 2 0 0 0 2-1.6L21 6H6">
+                        </path>
+
+                        <circle
+                            cx="10"
+                            cy="19"
+                            r="1">
+                        </circle>
+
+                        <circle
+                            cx="18"
+                            cy="19"
+                            r="1">
                         </circle>
 
                     </svg>
 
-                    <span id="contador-carrito">0</span>
+                    <span id="contador-carrito">
+                        0
+                    </span>
 
                 </a>
 
@@ -92,15 +157,25 @@
         <section class="catalogo">
 
             <div class="ruta-productos">
-                <a href="index.html">Inicio</a>
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
                 <span>/</span>
-                <span>Encuentra tu siguiente nivel</span>
+
+                <span>
+                    Encuentra tu siguiente nivel
+                </span>
+
             </div>
 
 
             <div class="encabezado-productos">
 
-                <h1>Encuentra tu siguiente nivel</h1>
+                <h1>
+                    Encuentra tu siguiente nivel
+                </h1>
 
                 <p>
                     Explora nuestro catálogo y prepara tu próxima partida.
@@ -201,14 +276,18 @@
             </div>
 
 
-            <p id="cantidad-productos"
-               class="cantidad-productos">
+            <p
+                id="cantidad-productos"
+                class="cantidad-productos">
+
                 10 productos
+
             </p>
 
 
-            <div id="lista-productos"
-                 class="productos-grid">
+            <div
+                id="lista-productos"
+                class="productos-grid">
             </div>
 
         </section>
@@ -222,9 +301,13 @@
 
             <div>
 
-                <h3>LEVEL-UP</h3>
+                <h3>
+                    LEVEL-UP
+                </h3>
 
-                <p>GAMER</p>
+                <p>
+                    GAMER
+                </p>
 
                 <p>
                     Tu siguiente nivel empieza aquí.
@@ -261,6 +344,7 @@
 
     <script src="assets/js/productos.js"></script>
     <script src="assets/js/carrito.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 

@@ -2,8 +2,6 @@
    CARRITO DE COMPRAS
 ========================= */
 
-
-
 let carrito =
     JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -386,13 +384,37 @@ function actualizarResumen() {
     });
 
 
-    /*
-       Por ahora el descuento es 0.
-       Más adelante lo conectaremos
-       con el inicio de sesión Duoc.
-    */
+    /* Descuento Duoc */
 
-    const descuento = 0;
+    const sesionCarrito =
+        JSON.parse(localStorage.getItem("sesionLevelUp"));
+
+    let esDuoc = false;
+
+
+    if (sesionCarrito) {
+
+        const correo =
+            sesionCarrito.correo.toLowerCase();
+
+
+        esDuoc =
+            correo.endsWith("@duoc.cl") ||
+            correo.endsWith("@profesor.duoc.cl");
+
+    }
+
+
+    let descuento = 0;
+
+
+    if (esDuoc) {
+
+        descuento =
+            Math.round(subtotal * 0.20);
+
+    }
+
 
     const total =
         subtotal - descuento;
@@ -408,6 +430,25 @@ function actualizarResumen() {
 
     totalElemento.textContent =
         "$" + total.toLocaleString("es-CL");
+
+
+    const mensajeDuoc =
+        document.querySelector(".mensaje-duoc-carrito");
+
+
+    if (mensajeDuoc) {
+
+        if (esDuoc) {
+
+            mensajeDuoc.style.display = "none";
+
+        } else {
+
+            mensajeDuoc.style.display = "block";
+
+        }
+
+    }
 
 }
 
@@ -540,29 +581,39 @@ if (listaCarrito) {
         }
     );
 
+
     /* Finalizar compra */
 
     const botonFinalizar =
         document.getElementById("boton-finalizar");
+
 
     if (botonFinalizar) {
 
         botonFinalizar.addEventListener("click", function() {
 
             if (carrito.length === 0) {
+
                 alert("Tu carrito está vacío.");
+
                 return;
             }
 
-            alert("Compra simulada realizada correctamente.");
+
+            alert(
+                "Compra simulada realizada correctamente."
+            );
+
 
             carrito = [];
+
 
             guardarCarrito();
 
             actualizarContadorCarrito();
 
             mostrarCarrito();
+
         });
 
     }
