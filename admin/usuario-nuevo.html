@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Nuevo usuario - Panel Admin - Level-Up Gamer</title>
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <aside class="admin-menu">
+
+            <a
+                href="index.html"
+                class="admin-logo">
+
+                <span>LEVEL-UP</span>
+                <small>ADMIN</small>
+
+            </a>
+
+
+            <nav class="admin-nav">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="productos.html">
+                    Productos
+                </a>
+
+                <a
+                    href="usuarios.html"
+                    class="activo">
+
+                    Usuarios
+
+                </a>
+
+            </nav>
+
+
+            <a
+                href="../index.html"
+                class="admin-volver">
+
+                ← Volver a la tienda
+
+            </a>
+
+        </aside>
+
+
+        <main class="admin-contenido">
+
+            <div class="admin-encabezado">
+
+                <p class="admin-etiqueta">
+                    NUEVO USUARIO
+                </p>
+
+                <h1>
+                    Crear usuario
+                </h1>
+
+                <p>
+                    Ingresa los datos de la nueva cuenta.
+                </p>
+
+            </div>
+
+
+            <form
+                id="form-admin-usuario"
+                class="admin-form"
+                novalidate>
+
+
+                <div class="admin-form-grid">
+
+
+                    <div class="admin-campo">
+
+                        <label for="admin-run">
+                            RUN
+                        </label>
+
+                        <input
+                            type="text"
+                            id="admin-run"
+                            minlength="7"
+                            maxlength="9"
+                            placeholder="19011022K">
+
+                        <small>
+                            Sin puntos ni guion.
+                        </small>
+
+                        <p
+                            class="admin-error"
+                            id="error-admin-run">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="admin-nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="admin-nombre"
+                            maxlength="50">
+
+                        <p
+                            class="admin-error"
+                            id="error-admin-nombre">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="admin-apellidos">
+                            Apellidos
+                        </label>
+
+                        <input
+                            type="text"
+                            id="admin-apellidos"
+                            maxlength="100">
+
+                        <p
+                            class="admin-error"
+                            id="error-admin-apellidos">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="admin-correo">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="admin-correo"
+                            maxlength="100">
+
+                        <small>
+                            @duoc.cl, @profesor.duoc.cl o @gmail.com
+                        </small>
+
+                        <p
+                            class="admin-error"
+                            id="error-admin-correo">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="admin-fecha">
+                            Fecha de nacimiento
+                        </label>
+
+                        <input
+                            type="date"
+                            id="admin-fecha">
+
+                        <small>
+                            Este campo es opcional.
+                        </small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="admin-tipo">
+                            Tipo de usuario
+                        </label>
+
+                        <select id="admin-tipo">
+
+                            <option value="">
+                                Selecciona un tipo
+                            </option>
+
+                            <option value="Administrador">
+                                Administrador
+                            </option>
+
+                            <option value="Cliente">
+                                Cliente
+                            </option>
+
+                            <option value="Vendedor">
+                                Vendedor
+                            </option>
+
+                        </select>
+
+                        <p
+                            class="admin-error"
+                            id="error-admin-tipo">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="admin-region">
+                            Región
+                        </label>
+
+                        <select id="admin-region">
+
+                            <option value="">
+                                Selecciona una región
+                            </option>
+
+                        </select>
+
+                        <p
+                            class="admin-error"
+                            id="error-admin-region">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="admin-comuna">
+                            Comuna
+                        </label>
+
+                        <select
+                            id="admin-comuna"
+                            disabled>
+
+                            <option value="">
+                                Selecciona una comuna
+                            </option>
+
+                        </select>
+
+                        <p
+                            class="admin-error"
+                            id="error-admin-comuna">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo admin-campo-completo">
+
+                        <label for="admin-direccion">
+                            Dirección
+                        </label>
+
+                        <input
+                            type="text"
+                            id="admin-direccion"
+                            maxlength="300">
+
+                        <p
+                            class="admin-error"
+                            id="error-admin-direccion">
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-form-acciones">
+
+                    <button
+                        type="submit"
+                        class="admin-boton">
+
+                        Guardar usuario
+
+                    </button>
+
+
+                    <a
+                        href="usuarios.html"
+                        class="admin-cancelar">
+
+                        Cancelar
+
+                    </a>
+
+                </div>
+
+
+                <p
+                    id="admin-mensaje-exito"
+                    class="admin-exitoso">
+                </p>
+
+            </form>
+
+        </main>
+
+    </div>
+
+
+    <script src="../assets/js/admin.js"></script>
+
+</body>
+
+</html>

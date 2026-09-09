@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Editar usuario - Panel Admin - Level-Up Gamer</title>
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <aside class="admin-menu">
+
+            <a
+                href="index.html"
+                class="admin-logo">
+
+                <span>LEVEL-UP</span>
+                <small>ADMIN</small>
+
+            </a>
+
+
+            <nav class="admin-nav">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="productos.html">
+                    Productos
+                </a>
+
+                <a
+                    href="usuarios.html"
+                    class="activo">
+
+                    Usuarios
+
+                </a>
+
+            </nav>
+
+
+            <a
+                href="../index.html"
+                class="admin-volver">
+
+                ← Volver a la tienda
+
+            </a>
+
+        </aside>
+
+
+        <main class="admin-contenido">
+
+            <div class="admin-encabezado">
+
+                <p class="admin-etiqueta">
+                    EDITAR USUARIO
+                </p>
+
+                <h1>
+                    Modificar usuario
+                </h1>
+
+                <p>
+                    Actualiza los datos de la cuenta seleccionada.
+                </p>
+
+            </div>
+
+
+            <form
+                id="form-editar-usuario"
+                class="admin-form"
+                novalidate>
+
+
+                <div class="admin-form-grid">
+
+
+                    <div class="admin-campo">
+
+                        <label for="editar-run">
+                            RUN
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editar-run"
+                            readonly>
+
+                        <small>
+                            El RUN no puede modificarse.
+                        </small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="editar-nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editar-nombre"
+                            maxlength="50">
+
+                        <p
+                            class="admin-error"
+                            id="error-editar-nombre">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="editar-apellidos">
+                            Apellidos
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editar-apellidos"
+                            maxlength="100">
+
+                        <p
+                            class="admin-error"
+                            id="error-editar-apellidos">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="editar-correo">
+                            Correo electrónico
+                        </label>
+
+                        <input
+                            type="email"
+                            id="editar-correo"
+                            maxlength="100">
+
+                        <small>
+                            @duoc.cl, @profesor.duoc.cl o @gmail.com
+                        </small>
+
+                        <p
+                            class="admin-error"
+                            id="error-editar-correo">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="editar-fecha">
+                            Fecha de nacimiento
+                        </label>
+
+                        <input
+                            type="date"
+                            id="editar-fecha">
+
+                        <small>
+                            Este campo es opcional.
+                        </small>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="editar-tipo">
+                            Tipo de usuario
+                        </label>
+
+                        <select id="editar-tipo">
+
+                            <option value="">
+                                Selecciona un tipo
+                            </option>
+
+                            <option value="Administrador">
+                                Administrador
+                            </option>
+
+                            <option value="Cliente">
+                                Cliente
+                            </option>
+
+                            <option value="Vendedor">
+                                Vendedor
+                            </option>
+
+                        </select>
+
+                        <p
+                            class="admin-error"
+                            id="error-editar-tipo">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="editar-region">
+                            Región
+                        </label>
+
+                        <select id="editar-region">
+
+                            <option value="">
+                                Selecciona una región
+                            </option>
+
+                        </select>
+
+                        <p
+                            class="admin-error"
+                            id="error-editar-region">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo">
+
+                        <label for="editar-comuna">
+                            Comuna
+                        </label>
+
+                        <select id="editar-comuna">
+
+                            <option value="">
+                                Selecciona una comuna
+                            </option>
+
+                        </select>
+
+                        <p
+                            class="admin-error"
+                            id="error-editar-comuna">
+                        </p>
+
+                    </div>
+
+
+                    <div class="admin-campo admin-campo-completo">
+
+                        <label for="editar-direccion">
+                            Dirección
+                        </label>
+
+                        <input
+                            type="text"
+                            id="editar-direccion"
+                            maxlength="300">
+
+                        <p
+                            class="admin-error"
+                            id="error-editar-direccion">
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-form-acciones">
+
+                    <button
+                        type="submit"
+                        class="admin-boton">
+
+                        Guardar cambios
+
+                    </button>
+
+
+                    <a
+                        href="usuarios.html"
+                        class="admin-cancelar">
+
+                        Cancelar
+
+                    </a>
+
+                </div>
+
+
+                <p
+                    id="mensaje-editar"
+                    class="admin-exitoso">
+                </p>
+
+            </form>
+
+        </main>
+
+    </div>
+
+
+    <script src="../assets/js/admin.js"></script>
+
+</body>
+
+</html>

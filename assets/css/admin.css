@@ -552,3 +552,23 @@ p {
     }
 
 }
+
+/* Eliminar usuario */
+
+.admin-accion-eliminar {
+    background: none;
+    border: none;
+    padding: 0;
+
+    color: #ff6b6b;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.admin-accion-eliminar:hover {
+    color: #ff9090;
+}

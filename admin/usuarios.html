@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Usuarios - Panel Admin - Level-Up Gamer</title>
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <aside class="admin-menu">
+
+            <a
+                href="index.html"
+                class="admin-logo">
+
+                <span>LEVEL-UP</span>
+                <small>ADMIN</small>
+
+            </a>
+
+
+            <nav class="admin-nav">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="productos.html">
+                    Productos
+                </a>
+
+                <a
+                    href="usuarios.html"
+                    class="activo">
+
+                    Usuarios
+
+                </a>
+
+            </nav>
+
+
+            <a
+                href="../index.html"
+                class="admin-volver">
+
+                ← Volver a la tienda
+
+            </a>
+
+        </aside>
+
+
+        <main class="admin-contenido">
+
+            <div class="admin-encabezado admin-encabezado-fila">
+
+                <div>
+
+                    <p class="admin-etiqueta">
+                        GESTIÓN DE USUARIOS
+                    </p>
+
+                    <h1>
+                        Usuarios
+                    </h1>
+
+                    <p>
+                        Administra las cuentas registradas en Level-Up Gamer.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="usuario-nuevo.html"
+                    class="admin-boton">
+
+                    + Nuevo usuario
+
+                </a>
+
+            </div>
+
+
+            <div class="admin-resumen">
+
+                <article class="admin-tarjeta">
+
+                    <p
+                        class="admin-tarjeta-numero"
+                        id="total-usuarios">
+
+                        0
+
+                    </p>
+
+                    <p class="admin-tarjeta-texto">
+                        Usuarios registrados
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="admin-tabla-contenedor">
+
+                <table class="admin-tabla">
+
+                    <thead>
+
+                        <tr>
+                            <th>RUN</th>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Tipo</th>
+                            <th>Acciones</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="lista-usuarios-admin">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div
+                id="sin-usuarios"
+                class="admin-sin-datos">
+
+                <h2>
+                    No hay usuarios registrados
+                </h2>
+
+                <p>
+                    Los usuarios creados desde Registro o desde el
+                    mantenedor aparecerán aquí.
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="../assets/js/admin.js"></script>
+
+</body>
+
+</html>
