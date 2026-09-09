@@ -2271,3 +2271,302 @@ detalle-producto {
 
     color: #39ff14;
 }
+
+
+/* Blog */
+
+.blog {
+    padding-top: 10px;
+    padding-bottom: 70px;
+}
+
+.encabezado-blog {
+    margin-bottom: 45px;
+}
+
+.encabezado-blog h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 58px;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.encabezado-blog > p:last-child {
+    color: #b7b7b7;
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+
+.blog-card {
+    background-color: #111416;
+    border: 1px solid #343a40;
+    border-radius: 7px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    border-color: #39ff14;
+}
+
+
+.blog-imagen {
+    display: block;
+    overflow: hidden;
+}
+
+
+.blog-imagen img {
+    width: 100%;
+    height: 300px;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+
+.blog-card:hover .blog-imagen img {
+    transform: scale(1.03);
+}
+
+
+.blog-contenido {
+    padding: 28px;
+
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.blog-categoria {
+    color: #39ff14;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+
+.blog-contenido h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 34px;
+    line-height: 1.05;
+    margin-bottom: 22px;
+
+    min-height: 72px;
+}
+
+
+.blog-descripcion {
+    color: #b7b7b7;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+
+.boton-articulo {
+    display: inline-block;
+    padding: 12px 18px;
+    border: 1px solid #51575c;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-top: auto;
+        align-self: flex-start;
+
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.boton-articulo:hover {
+    color: #39ff14;
+    border-color: #39ff14;
+}
+
+
+/* Vista mÃ³vil */
+
+@media (max-width: 800px) {
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .encabezado-blog h1 {
+        font-size: 46px;
+    }
+
+}
+
+
+@media (max-width: 550px) {
+
+    .blog-imagen img {
+        height: 220px;
+    }
+
+    .blog-contenido {
+        padding: 22px;
+    }
+
+    .blog-contenido h2 {
+        font-size: 29px;
+    }
+
+    .blog-contenido h2 {
+    min-height: auto;
+}
+
+}
+
+
+/* Artículos del blog */
+
+.articulo-blog {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 10px 0 80px;
+}
+
+
+.volver-blog {
+    display: inline-block;
+    margin-bottom: 30px;
+    color: #b8b8b8;
+    font-size: 14px;
+}
+
+
+.volver-blog:hover {
+    color: #39ff14;
+}
+
+
+.articulo-categoria {
+    color: #39ff14;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+}
+
+
+.articulo-blog h1 {
+    max-width: 800px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 64px;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+
+.articulo-info {
+    color: #b8b8b8;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+
+
+.articulo-imagen {
+    width: 100%;
+    max-height: 520px;
+    display: block;
+    object-fit: cover;
+    border-radius: 7px;
+    margin-bottom: 35px;
+}
+
+
+.articulo-blog > p,
+.articulo-seccion p,
+.articulo-video p {
+    color: #c5c5c5;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+.articulo-seccion {
+    margin-top: 30px;
+}
+
+
+.articulo-seccion h2,
+.articulo-video h2 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+
+.articulo-video {
+    margin-top: 35px;
+}
+
+
+.video-contenedor {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    margin-top: 20px;
+    border: 1px solid #343a40;
+    border-radius: 7px;
+    overflow: hidden;
+    background-color: #111416;
+}
+
+
+.video-contenedor iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+.articulo-boton {
+    display: inline-block;
+    margin-top: 25px;
+}
+
+
+/* Vista móvil */
+
+@media (max-width: 700px) {
+
+    .articulo-blog h1 {
+        font-size: 46px;
+    }
+
+    .articulo-seccion h2,
+    .articulo-video h2 {
+        font-size: 27px;
+    }
+
+}
