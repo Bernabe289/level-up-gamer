@@ -715,3 +715,169 @@ if (formulario) {
     });
 
 }
+
+/* Login */
+
+const formularioLogin = document.getElementById("form-login");
+
+if (formularioLogin) {
+
+    function mostrarErrorLogin(campo, mensaje) {
+
+        const input =
+            document.getElementById(campo);
+
+        const error =
+            document.getElementById("error-" + campo);
+
+
+        input.classList.add("campo-error");
+
+        error.textContent = mensaje;
+    }
+
+
+    function limpiarErrorLogin(campo) {
+
+        const input =
+            document.getElementById(campo);
+
+        const error =
+            document.getElementById("error-" + campo);
+
+
+        input.classList.remove("campo-error");
+
+        error.textContent = "";
+    }
+
+
+    formularioLogin.addEventListener("submit", function(evento) {
+
+        evento.preventDefault();
+
+
+        const correo =
+            document.getElementById("correo").value.trim();
+
+        const contrasena =
+            document.getElementById("contrasena").value;
+
+
+        let formularioValido = true;
+
+
+        limpiarErrorLogin("correo");
+        limpiarErrorLogin("contrasena");
+
+        document.getElementById("login-error").textContent = "";
+
+
+        /* Correo */
+
+        const correoPermitido =
+            /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
+
+        if (correo === "") {
+
+            mostrarErrorLogin(
+                "correo",
+                "Ingresa tu correo electrónico."
+            );
+
+            formularioValido = false;
+
+        } else if (correo.length > 100) {
+
+            mostrarErrorLogin(
+                "correo",
+                "El correo no puede superar los 100 caracteres."
+            );
+
+            formularioValido = false;
+
+        } else if (!correoPermitido.test(correo)) {
+
+            mostrarErrorLogin(
+                "correo",
+                "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."
+            );
+
+            formularioValido = false;
+        }
+
+
+        /* Contraseña */
+
+        if (contrasena === "") {
+
+            mostrarErrorLogin(
+                "contrasena",
+                "Ingresa tu contraseña."
+            );
+
+            formularioValido = false;
+
+        } else if (
+            contrasena.length < 4 ||
+            contrasena.length > 10
+        ) {
+
+            mostrarErrorLogin(
+                "contrasena",
+                "La contraseña debe tener entre 4 y 10 caracteres."
+            );
+
+            formularioValido = false;
+        }
+
+
+        if (!formularioValido) {
+
+            return;
+        }
+
+
+        /* Buscar el usuario en los registrados */
+
+        const usuarios =
+            JSON.parse(localStorage.getItem("usuariosLevelUp")) || [];
+
+        const usuarioEncontrado =
+            usuarios.find(function(usuario) {
+
+                return (
+                    usuario.correo.toLowerCase() === correo.toLowerCase() &&
+                    usuario.contrasena === contrasena
+                );
+
+            });
+
+
+        if (!usuarioEncontrado) {
+
+            document.getElementById("login-error").textContent =
+                "Correo o contraseña incorrectos.";
+
+            return;
+        }
+
+
+        /* Guardar la sesión activa */
+
+        localStorage.setItem(
+            "sesionLevelUp",
+            JSON.stringify({
+                run: usuarioEncontrado.run,
+                nombre: usuarioEncontrado.nombre,
+                correo: usuarioEncontrado.correo,
+                tipo: usuarioEncontrado.tipo
+            })
+        );
+
+
+        window.location.href = "index.html";
+
+    });
+
+}
