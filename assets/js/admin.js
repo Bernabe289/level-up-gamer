@@ -1,3 +1,34 @@
+/* Protección del panel */
+
+const sesionPanel =
+    JSON.parse(
+        localStorage.getItem("sesionLevelUp")
+    );
+
+const tipoSesionPanel =
+    sesionPanel
+        ? sesionPanel.tipo || "Cliente"
+        : null;
+
+
+if (!sesionPanel) {
+
+    window.location.replace(
+        "../login.html"
+    );
+
+} else if (
+    tipoSesionPanel !== "Administrador" &&
+    tipoSesionPanel !== "Vendedor"
+) {
+
+    window.location.replace(
+        "../index.html"
+    );
+
+}
+
+
 /* Panel admin: inicio */
 
 const totalProductos =
@@ -33,20 +64,10 @@ if (totalUsuarios) {
 
 /* Nombre del administrador */
 
-if (nombreAdmin) {
+if (nombreAdmin && sesionPanel) {
 
-    const sesionAdmin =
-        JSON.parse(
-            localStorage.getItem("sesionLevelUp")
-        );
-
-
-    if (sesionAdmin) {
-
-        nombreAdmin.textContent =
-            sesionAdmin.nombre;
-
-    }
+    nombreAdmin.textContent =
+        sesionPanel.nombre;
 
 }
 
@@ -400,7 +421,10 @@ if (formularioProductoNuevo) {
                 nombre: nombre,
                 categoria: categoria,
                 precio: Number(precio),
-                imagen: imagen,
+                imagen:
+                    imagen === ""
+                        ? "assets/img/foto1.png"
+                        : imagen,
                 descripcion: descripcion,
                 fabricante: fabricante,
                 stock: Number(stock),
@@ -454,6 +478,7 @@ if (formularioProductoNuevo) {
 
 }
 
+
 /* Editar producto */
 
 const formularioProductoEditar =
@@ -483,8 +508,6 @@ if (formularioProductoEditar) {
 
     } else {
 
-        /* Cargar datos */
-
         document.getElementById("codigo").value =
             productoEditar.id;
 
@@ -507,7 +530,7 @@ if (formularioProductoEditar) {
             productoEditar.stockCritico ?? "";
 
         document.getElementById("imagen").value =
-            productoEditar.imagen;
+            productoEditar.imagen || "";
 
         document.getElementById("descripcion").value =
             productoEditar.descripcion;
@@ -601,8 +624,6 @@ if (formularioProductoEditar) {
                 ).textContent = "";
 
 
-                /* Nombre */
-
                 if (nombre === "") {
 
                     mostrarErrorEditar(
@@ -624,8 +645,6 @@ if (formularioProductoEditar) {
                 }
 
 
-                /* Categoría */
-
                 if (categoria === "") {
 
                     mostrarErrorEditar(
@@ -638,8 +657,6 @@ if (formularioProductoEditar) {
                 }
 
 
-                /* Fabricante */
-
                 if (fabricante === "") {
 
                     mostrarErrorEditar(
@@ -651,8 +668,6 @@ if (formularioProductoEditar) {
 
                 }
 
-
-                /* Precio */
 
                 if (precio === "") {
 
@@ -674,8 +689,6 @@ if (formularioProductoEditar) {
 
                 }
 
-
-                /* Stock */
 
                 if (stock === "") {
 
@@ -701,8 +714,6 @@ if (formularioProductoEditar) {
                 }
 
 
-                /* Stock crítico */
-
                 if (
                     stockCritico !== "" &&
                     (
@@ -720,8 +731,6 @@ if (formularioProductoEditar) {
 
                 }
 
-
-                /* Descripción */
 
                 if (descripcion.length > 500) {
 
@@ -741,8 +750,6 @@ if (formularioProductoEditar) {
 
                 }
 
-
-                /* Guardar cambios */
 
                 productoEditar.nombre =
                     nombre;
@@ -765,7 +772,9 @@ if (formularioProductoEditar) {
                         : Number(stockCritico);
 
                 productoEditar.imagen =
-                    imagen;
+                    imagen === ""
+                        ? "assets/img/foto1.png"
+                        : imagen;
 
                 productoEditar.descripcion =
                     descripcion;
@@ -810,6 +819,7 @@ if (formularioProductoEditar) {
 
 }
 
+
 /* Panel admin: detalle de producto */
 
 const adminDetalleNombre =
@@ -842,7 +852,6 @@ if (adminDetalleNombre) {
             "admin-detalle-editar"
         ).style.display =
             "none";
-
 
     } else {
 
@@ -922,8 +931,6 @@ if (adminDetalleNombre) {
         ).textContent =
             productoDetalleAdmin.descripcion;
 
-
-        /* Alerta de stock crítico */
 
         const alertaStock =
             document.getElementById(
@@ -1010,7 +1017,10 @@ function mostrarUsuarios() {
         tabla.innerHTML = "";
 
         if (sinUsuarios) {
-            sinUsuarios.style.display = "block";
+
+            sinUsuarios.style.display =
+                "block";
+
         }
 
         return;
@@ -1018,7 +1028,10 @@ function mostrarUsuarios() {
 
 
     if (sinUsuarios) {
-        sinUsuarios.style.display = "none";
+
+        sinUsuarios.style.display =
+            "none";
+
     }
 
 
@@ -1144,6 +1157,7 @@ document.addEventListener(
 
 mostrarUsuarios();
 
+
 /* Nuevo usuario */
 
 const formularioUsuario =
@@ -1175,7 +1189,12 @@ if (formularioUsuario) {
         },
         {
             nombre: "Valparaíso",
-            comunas: ["Valparaíso", "Viña del Mar", "Quilpué", "Villa Alemana"]
+            comunas: [
+                "Valparaíso",
+                "Viña del Mar",
+                "Quilpué",
+                "Villa Alemana"
+            ]
         },
         {
             nombre: "Metropolitana de Santiago",
@@ -1191,15 +1210,27 @@ if (formularioUsuario) {
         },
         {
             nombre: "O'Higgins",
-            comunas: ["Rancagua", "Machalí", "San Fernando"]
+            comunas: [
+                "Rancagua",
+                "Machalí",
+                "San Fernando"
+            ]
         },
         {
             nombre: "Maule",
-            comunas: ["Talca", "Curicó", "Linares"]
+            comunas: [
+                "Talca",
+                "Curicó",
+                "Linares"
+            ]
         },
         {
             nombre: "Ñuble",
-            comunas: ["Chillán", "Chillán Viejo", "San Carlos"]
+            comunas: [
+                "Chillán",
+                "Chillán Viejo",
+                "San Carlos"
+            ]
         },
         {
             nombre: "Biobío",
@@ -1212,23 +1243,43 @@ if (formularioUsuario) {
         },
         {
             nombre: "La Araucanía",
-            comunas: ["Temuco", "Padre Las Casas", "Villarrica"]
+            comunas: [
+                "Temuco",
+                "Padre Las Casas",
+                "Villarrica"
+            ]
         },
         {
             nombre: "Los Ríos",
-            comunas: ["Valdivia", "La Unión", "Río Bueno"]
+            comunas: [
+                "Valdivia",
+                "La Unión",
+                "Río Bueno"
+            ]
         },
         {
             nombre: "Los Lagos",
-            comunas: ["Puerto Montt", "Osorno", "Castro"]
+            comunas: [
+                "Puerto Montt",
+                "Osorno",
+                "Castro"
+            ]
         },
         {
             nombre: "Aysén",
-            comunas: ["Coyhaique", "Aysén", "Chile Chico"]
+            comunas: [
+                "Coyhaique",
+                "Aysén",
+                "Chile Chico"
+            ]
         },
         {
             nombre: "Magallanes y la Antártica Chilena",
-            comunas: ["Punta Arenas", "Puerto Natales", "Porvenir"]
+            comunas: [
+                "Punta Arenas",
+                "Puerto Natales",
+                "Porvenir"
+            ]
         }
     ];
 
@@ -1301,6 +1352,7 @@ if (formularioUsuario) {
         if (!formato.test(run)) {
 
             return false;
+
         }
 
 
@@ -1326,6 +1378,7 @@ if (formularioUsuario) {
             if (multiplicador === 8) {
 
                 multiplicador = 2;
+
             }
 
         }
@@ -1355,6 +1408,7 @@ if (formularioUsuario) {
 
 
         return digitoIngresado === digitoCorrecto;
+
     }
 
 
@@ -1463,8 +1517,6 @@ if (formularioUsuario) {
             ).textContent = "";
 
 
-            /* RUN */
-
             if (run === "") {
 
                 mostrarErrorUsuario(
@@ -1485,8 +1537,6 @@ if (formularioUsuario) {
 
             }
 
-
-            /* Nombre */
 
             if (nombre === "") {
 
@@ -1509,8 +1559,6 @@ if (formularioUsuario) {
             }
 
 
-            /* Apellidos */
-
             if (apellidos === "") {
 
                 mostrarErrorUsuario(
@@ -1531,8 +1579,6 @@ if (formularioUsuario) {
 
             }
 
-
-            /* Correo */
 
             const correoPermitido =
                 /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
@@ -1568,8 +1614,6 @@ if (formularioUsuario) {
             }
 
 
-            /* Tipo */
-
             if (tipo === "") {
 
                 mostrarErrorUsuario(
@@ -1581,8 +1625,6 @@ if (formularioUsuario) {
 
             }
 
-
-            /* Región */
 
             if (region.value === "") {
 
@@ -1596,8 +1638,6 @@ if (formularioUsuario) {
             }
 
 
-            /* Comuna */
-
             if (comuna.value === "") {
 
                 mostrarErrorUsuario(
@@ -1609,8 +1649,6 @@ if (formularioUsuario) {
 
             }
 
-
-            /* Dirección */
 
             if (direccion === "") {
 
@@ -1636,6 +1674,7 @@ if (formularioUsuario) {
             if (!formularioValido) {
 
                 return;
+
             }
 
 
@@ -1659,6 +1698,7 @@ if (formularioUsuario) {
                 );
 
                 return;
+
             }
 
 
@@ -1704,6 +1744,7 @@ if (formularioUsuario) {
     );
 
 }
+
 
 /* Editar usuario */
 
@@ -1910,8 +1951,6 @@ if (formularioEditarUsuario) {
             document.getElementById("editar-comuna");
 
 
-        /* Regiones */
-
         regionesEditar.forEach(function(item) {
 
             regionEditar.innerHTML += `
@@ -1948,6 +1987,7 @@ if (formularioEditarUsuario) {
                 comunaEditar.disabled = true;
 
                 return;
+
             }
 
 
@@ -1970,8 +2010,6 @@ if (formularioEditarUsuario) {
 
         }
 
-
-        /* Cargar datos actuales */
 
         document.getElementById("editar-run").value =
             usuarioEditar.run;
@@ -2126,8 +2164,6 @@ if (formularioEditarUsuario) {
                 ).textContent = "";
 
 
-                /* Nombre */
-
                 if (nombre === "") {
 
                     mostrarErrorEditarUsuario(
@@ -2149,8 +2185,6 @@ if (formularioEditarUsuario) {
                 }
 
 
-                /* Apellidos */
-
                 if (apellidos === "") {
 
                     mostrarErrorEditarUsuario(
@@ -2171,8 +2205,6 @@ if (formularioEditarUsuario) {
 
                 }
 
-
-                /* Correo */
 
                 const correoPermitido =
                     /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
@@ -2208,8 +2240,6 @@ if (formularioEditarUsuario) {
                 }
 
 
-                /* Tipo */
-
                 if (tipo === "") {
 
                     mostrarErrorEditarUsuario(
@@ -2221,8 +2251,6 @@ if (formularioEditarUsuario) {
 
                 }
 
-
-                /* Región */
 
                 if (region === "") {
 
@@ -2236,8 +2264,6 @@ if (formularioEditarUsuario) {
                 }
 
 
-                /* Comuna */
-
                 if (comuna === "") {
 
                     mostrarErrorEditarUsuario(
@@ -2249,8 +2275,6 @@ if (formularioEditarUsuario) {
 
                 }
 
-
-                /* Dirección */
 
                 if (direccion === "") {
 
@@ -2280,9 +2304,8 @@ if (formularioEditarUsuario) {
                 }
 
 
-                /* Guardar cambios */
-
                 usuariosEditar[posicionUsuario] = {
+
                     ...usuarioEditar,
                     nombre: nombre,
                     apellidos: apellidos,
@@ -2292,6 +2315,7 @@ if (formularioEditarUsuario) {
                     region: region,
                     comuna: comuna,
                     direccion: direccion
+
                 };
 
 
@@ -2299,8 +2323,6 @@ if (formularioEditarUsuario) {
                     usuariosEditar
                 );
 
-
-                /* Actualizar sesión si corresponde */
 
                 const sesionActual =
                     JSON.parse(
@@ -2350,6 +2372,7 @@ if (formularioEditarUsuario) {
     }
 
 }
+
 
 /* Detalle de usuario */
 

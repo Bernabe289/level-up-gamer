@@ -504,7 +504,7 @@ if (formulario) {
 
             formularioValido = false;
 
-        }  else if (correo.length > 100) {
+        } else if (correo.length > 100) {
 
             mostrarError(
                 "correo",
@@ -512,8 +512,8 @@ if (formulario) {
             );
 
             formularioValido = false;
-    
-        }else if (!correoPermitido.test(correo)) {
+
+        } else if (!correoPermitido.test(correo)) {
 
             mostrarError(
                 "correo",
@@ -712,6 +712,7 @@ if (formulario) {
 
         comuna.disabled = true;
 
+
         /* Ir al login */
 
         setTimeout(function() {
@@ -719,13 +720,17 @@ if (formulario) {
             window.location.href = "login.html";
 
         }, 1500);
+
     });
 
 }
 
+
 /* Login */
 
-const formularioLogin = document.getElementById("form-login");
+const formularioLogin =
+    document.getElementById("form-login");
+
 
 if (formularioLogin) {
 
@@ -759,139 +764,175 @@ if (formularioLogin) {
     }
 
 
-    formularioLogin.addEventListener("submit", function(evento) {
+    formularioLogin.addEventListener(
+        "submit",
+        function(evento) {
 
-        evento.preventDefault();
-
-
-        const correo =
-            document.getElementById("correo").value.trim();
-
-        const contrasena =
-            document.getElementById("contrasena").value;
+            evento.preventDefault();
 
 
-        let formularioValido = true;
+            const correo =
+                document.getElementById("correo")
+                    .value
+                    .trim();
+
+            const contrasena =
+                document.getElementById("contrasena")
+                    .value;
 
 
-        limpiarErrorLogin("correo");
-        limpiarErrorLogin("contrasena");
-
-        document.getElementById("login-error").textContent = "";
+            let formularioValido = true;
 
 
-        /* Correo */
+            limpiarErrorLogin("correo");
+            limpiarErrorLogin("contrasena");
 
-        const correoPermitido =
-            /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
-
-        if (correo === "") {
-
-            mostrarErrorLogin(
-                "correo",
-                "Ingresa tu correo electrónico."
-            );
-
-            formularioValido = false;
-
-        } else if (correo.length > 100) {
-
-            mostrarErrorLogin(
-                "correo",
-                "El correo no puede superar los 100 caracteres."
-            );
-
-            formularioValido = false;
-
-        } else if (!correoPermitido.test(correo)) {
-
-            mostrarErrorLogin(
-                "correo",
-                "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."
-            );
-
-            formularioValido = false;
-        }
+            document.getElementById(
+                "login-error"
+            ).textContent = "";
 
 
-        /* Contraseña */
+            /* Correo */
 
-        if (contrasena === "") {
-
-            mostrarErrorLogin(
-                "contrasena",
-                "Ingresa tu contraseña."
-            );
-
-            formularioValido = false;
-
-        } else if (
-            contrasena.length < 4 ||
-            contrasena.length > 10
-        ) {
-
-            mostrarErrorLogin(
-                "contrasena",
-                "La contraseña debe tener entre 4 y 10 caracteres."
-            );
-
-            formularioValido = false;
-        }
+            const correoPermitido =
+                /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
 
 
-        if (!formularioValido) {
+            if (correo === "") {
 
-            return;
-        }
-
-
-        /* Buscar el usuario en los registrados */
-
-        const usuarios =
-            JSON.parse(localStorage.getItem("usuariosLevelUp")) || [];
-
-        const usuarioEncontrado =
-            usuarios.find(function(usuario) {
-
-                return (
-                    usuario.correo.toLowerCase() === correo.toLowerCase() &&
-                    usuario.contrasena === contrasena
+                mostrarErrorLogin(
+                    "correo",
+                    "Ingresa tu correo electrónico."
                 );
 
-            });
+                formularioValido = false;
+
+            } else if (correo.length > 100) {
+
+                mostrarErrorLogin(
+                    "correo",
+                    "El correo no puede superar los 100 caracteres."
+                );
+
+                formularioValido = false;
+
+            } else if (!correoPermitido.test(correo)) {
+
+                mostrarErrorLogin(
+                    "correo",
+                    "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."
+                );
+
+                formularioValido = false;
+            }
 
 
-        if (!usuarioEncontrado) {
+            /* Contraseña */
 
-            document.getElementById("login-error").textContent =
-                "Correo o contraseña incorrectos.";
+            if (contrasena === "") {
 
-            return;
+                mostrarErrorLogin(
+                    "contrasena",
+                    "Ingresa tu contraseña."
+                );
+
+                formularioValido = false;
+
+            } else if (
+                contrasena.length < 4 ||
+                contrasena.length > 10
+            ) {
+
+                mostrarErrorLogin(
+                    "contrasena",
+                    "La contraseña debe tener entre 4 y 10 caracteres."
+                );
+
+                formularioValido = false;
+            }
+
+
+            if (!formularioValido) {
+
+                return;
+            }
+
+
+            /* Buscar usuario */
+
+            const usuarios =
+                JSON.parse(
+                    localStorage.getItem("usuariosLevelUp")
+                ) || [];
+
+
+            const usuarioEncontrado =
+                usuarios.find(function(usuario) {
+
+                    return (
+                        usuario.correo.toLowerCase() === correo.toLowerCase() &&
+                        usuario.contrasena === contrasena
+                    );
+
+                });
+
+
+            if (!usuarioEncontrado) {
+
+                document.getElementById(
+                    "login-error"
+                ).textContent =
+                    "Correo o contraseña incorrectos.";
+
+                return;
+            }
+
+
+            /* Guardar sesión */
+
+            localStorage.setItem(
+                "sesionLevelUp",
+                JSON.stringify({
+                    run: usuarioEncontrado.run,
+                    nombre: usuarioEncontrado.nombre,
+                    correo: usuarioEncontrado.correo,
+                    tipo: usuarioEncontrado.tipo || "Cliente"
+                })
+            );
+
+
+            /* Redirección según rol */
+
+            const tipoUsuario =
+                usuarioEncontrado.tipo || "Cliente";
+
+
+            if (
+                tipoUsuario === "Administrador" ||
+                tipoUsuario === "Vendedor"
+            ) {
+
+                window.location.href =
+                    "admin/index.html";
+
+            } else {
+
+                window.location.href =
+                    "index.html";
+
+            }
+
         }
-
-
-        /* Guardar la sesión activa */
-
-        localStorage.setItem(
-            "sesionLevelUp",
-            JSON.stringify({
-                run: usuarioEncontrado.run,
-                nombre: usuarioEncontrado.nombre,
-                correo: usuarioEncontrado.correo,
-                tipo: usuarioEncontrado.tipo
-            })
-        );
-
-
-        window.location.href = "index.html";
-
-    });
+    );
 
 }
 
+
 /* Contacto */
 
-const formularioContacto = document.getElementById("form-contacto");
+const formularioContacto =
+    document.getElementById("form-contacto");
+
 
 if (formularioContacto) {
 
@@ -925,122 +966,135 @@ if (formularioContacto) {
     }
 
 
-    formularioContacto.addEventListener("submit", function(evento) {
+    formularioContacto.addEventListener(
+        "submit",
+        function(evento) {
 
-        evento.preventDefault();
-
-
-        const nombre =
-            document.getElementById("nombre").value.trim();
-
-        const correo =
-            document.getElementById("correo").value.trim();
-
-        const comentario =
-            document.getElementById("comentario").value.trim();
+            evento.preventDefault();
 
 
-        let formularioValido = true;
+            const nombre =
+                document.getElementById("nombre")
+                    .value
+                    .trim();
+
+            const correo =
+                document.getElementById("correo")
+                    .value
+                    .trim();
+
+            const comentario =
+                document.getElementById("comentario")
+                    .value
+                    .trim();
 
 
-        limpiarErrorContacto("nombre");
-        limpiarErrorContacto("correo");
-        limpiarErrorContacto("comentario");
-
-        document.getElementById("contacto-exitoso").textContent = "";
+            let formularioValido = true;
 
 
-        /* Nombre */
+            limpiarErrorContacto("nombre");
+            limpiarErrorContacto("correo");
+            limpiarErrorContacto("comentario");
 
-        if (nombre === "") {
+            document.getElementById(
+                "contacto-exitoso"
+            ).textContent = "";
 
-            mostrarErrorContacto(
-                "nombre",
-                "Ingresa tu nombre."
-            );
 
-            formularioValido = false;
+            /* Nombre */
 
-        } else if (nombre.length > 100) {
+            if (nombre === "") {
 
-            mostrarErrorContacto(
-                "nombre",
-                "El nombre no puede superar los 100 caracteres."
-            );
+                mostrarErrorContacto(
+                    "nombre",
+                    "Ingresa tu nombre."
+                );
 
-            formularioValido = false;
+                formularioValido = false;
+
+            } else if (nombre.length > 100) {
+
+                mostrarErrorContacto(
+                    "nombre",
+                    "El nombre no puede superar los 100 caracteres."
+                );
+
+                formularioValido = false;
+            }
+
+
+            /* Correo */
+
+            const correoPermitido =
+                /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
+
+
+            if (correo === "") {
+
+                mostrarErrorContacto(
+                    "correo",
+                    "Ingresa tu correo electrónico."
+                );
+
+                formularioValido = false;
+
+            } else if (correo.length > 100) {
+
+                mostrarErrorContacto(
+                    "correo",
+                    "El correo no puede superar los 100 caracteres."
+                );
+
+                formularioValido = false;
+
+            } else if (!correoPermitido.test(correo)) {
+
+                mostrarErrorContacto(
+                    "correo",
+                    "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."
+                );
+
+                formularioValido = false;
+            }
+
+
+            /* Comentario */
+
+            if (comentario === "") {
+
+                mostrarErrorContacto(
+                    "comentario",
+                    "Escribe tu comentario."
+                );
+
+                formularioValido = false;
+
+            } else if (comentario.length > 500) {
+
+                mostrarErrorContacto(
+                    "comentario",
+                    "El comentario no puede superar los 500 caracteres."
+                );
+
+                formularioValido = false;
+            }
+
+
+            if (!formularioValido) {
+
+                return;
+            }
+
+
+            document.getElementById(
+                "contacto-exitoso"
+            ).textContent =
+                "Mensaje enviado correctamente.";
+
+
+            formularioContacto.reset();
+
         }
-
-
-        /* Correo */
-
-        const correoPermitido =
-            /^[^\s@]+@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
-
-
-        if (correo === "") {
-
-            mostrarErrorContacto(
-                "correo",
-                "Ingresa tu correo electrónico."
-            );
-
-            formularioValido = false;
-
-        } else if (correo.length > 100) {
-
-            mostrarErrorContacto(
-                "correo",
-                "El correo no puede superar los 100 caracteres."
-            );
-
-            formularioValido = false;
-
-        } else if (!correoPermitido.test(correo)) {
-
-            mostrarErrorContacto(
-                "correo",
-                "Usa un correo @duoc.cl, @profesor.duoc.cl o @gmail.com."
-            );
-
-            formularioValido = false;
-        }
-
-
-        /* Comentario */
-
-        if (comentario === "") {
-
-            mostrarErrorContacto(
-                "comentario",
-                "Escribe tu comentario."
-            );
-
-            formularioValido = false;
-
-        } else if (comentario.length > 500) {
-
-            mostrarErrorContacto(
-                "comentario",
-                "El comentario no puede superar los 500 caracteres."
-            );
-
-            formularioValido = false;
-        }
-
-
-        if (!formularioValido) {
-
-            return;
-        }
-
-
-        document.getElementById("contacto-exitoso").textContent =
-            "Mensaje enviado correctamente.";
-
-
-        formularioContacto.reset();
-
-    });
+    );
 
 }
