@@ -1,6 +1,7 @@
-/* catálogo base de LEVEL-UP */
+/* Catálogo base de LEVEL-UP */
 
-const productos = [
+const productosBase = [
+
     {
         id: "JM001",
         nombre: "Catan",
@@ -110,10 +111,31 @@ const productos = [
         fabricante: "Level-Up Gamer",
         stock: 25
     }
+
 ];
 
 
-/* misma tarjeta para el home y el catálogo */
+/* Productos guardados */
+
+let productos =
+    JSON.parse(
+        localStorage.getItem("productosLevelUp")
+    );
+
+
+if (!productos) {
+
+    productos = productosBase;
+
+    localStorage.setItem(
+        "productosLevelUp",
+        JSON.stringify(productos)
+    );
+
+}
+
+
+/* Misma tarjeta para el home y el catálogo */
 
 function crearTarjetaProducto(producto) {
 
@@ -149,6 +171,7 @@ function crearTarjetaProducto(producto) {
 
         </article>
     `;
+
 }
 
 
@@ -161,10 +184,11 @@ function mostrarProductos(lista, contenedor) {
 }
 
 
-/* portada */
+/* Portada */
 
 const productosDestacados =
     document.getElementById("productos-destacados");
+
 
 if (productosDestacados) {
 
@@ -175,17 +199,24 @@ if (productosDestacados) {
         "MS001"
     ];
 
-    const destacados = productos.filter(function(producto) {
 
-        return idsDestacados.includes(producto.id);
+    const destacados =
+        productos.filter(function(producto) {
 
-    });
+            return idsDestacados.includes(producto.id);
 
-    mostrarProductos(destacados, productosDestacados);
+        });
+
+
+    mostrarProductos(
+        destacados,
+        productosDestacados
+    );
+
 }
 
 
-/* catálogo completo */
+/* Catálogo completo */
 
 const listaProductos =
     document.getElementById("lista-productos");
@@ -205,7 +236,9 @@ const cantidadProductos =
 
 function aplicarFiltros() {
 
-    let resultado = [...productos];
+    let resultado =
+        [...productos];
+
 
     const texto =
         buscador.value.trim().toLowerCase();
@@ -219,24 +252,26 @@ function aplicarFiltros() {
 
     if (texto !== "") {
 
-        resultado = resultado.filter(function(producto) {
+        resultado =
+            resultado.filter(function(producto) {
 
-            return producto.nombre
-                .toLowerCase()
-                .includes(texto);
+                return producto.nombre
+                    .toLowerCase()
+                    .includes(texto);
 
-        });
+            });
 
     }
 
 
     if (categoria !== "todos") {
 
-        resultado = resultado.filter(function(producto) {
+        resultado =
+            resultado.filter(function(producto) {
 
-            return producto.categoria === categoria;
+                return producto.categoria === categoria;
 
-        });
+            });
 
     }
 
@@ -263,28 +298,39 @@ function aplicarFiltros() {
     }
 
 
-    mostrarProductos(resultado, listaProductos);
+    mostrarProductos(
+        resultado,
+        listaProductos
+    );
+
 
     cantidadProductos.textContent =
         resultado.length === 1
             ? "1 producto"
             : `${resultado.length} productos`;
+
 }
 
 
 if (listaProductos) {
 
-    mostrarProductos(productos, listaProductos);
+    mostrarProductos(
+        productos,
+        listaProductos
+    );
+
 
     buscador.addEventListener(
         "input",
         aplicarFiltros
     );
 
+
     filtroCategoria.addEventListener(
         "change",
         aplicarFiltros
     );
+
 
     ordenPrecio.addEventListener(
         "change",
@@ -294,15 +340,19 @@ if (listaProductos) {
 }
 
 
-/* detalle del producto */
+/* Detalle del producto */
 
 const detalleNombre =
     document.getElementById("detalle-nombre");
 
+
 if (detalleNombre) {
 
     const parametros =
-        new URLSearchParams(window.location.search);
+        new URLSearchParams(
+            window.location.search
+        );
+
 
     const idProducto =
         parametros.get("id");
@@ -320,6 +370,7 @@ if (detalleNombre) {
 
         document.getElementById("detalle-imagen").src =
             productoDetalle.imagen;
+
 
         document.getElementById("detalle-imagen").alt =
             productoDetalle.nombre;
@@ -346,40 +397,55 @@ if (detalleNombre) {
 
 
         document.getElementById("detalle-precio").textContent =
-            "$" + productoDetalle.precio.toLocaleString("es-CL");
+            "$" +
+            productoDetalle.precio.toLocaleString("es-CL");
 
 
         document.getElementById("detalle-stock").textContent =
-            productoDetalle.stock + " unidades disponibles";
+            productoDetalle.stock +
+            " unidades disponibles";
 
 
         const cantidad =
             document.getElementById("cantidad");
+
 
         cantidad.max =
             productoDetalle.stock;
 
 
         const botonDetalle =
-            document.getElementById("boton-detalle-carrito");
+            document.getElementById(
+                "boton-detalle-carrito"
+            );
+
 
         botonDetalle.dataset.id =
             productoDetalle.id;
 
 
         document.title =
-            productoDetalle.nombre + " - Level-Up Gamer";
+            productoDetalle.nombre +
+            " - Level-Up Gamer";
+
 
     } else {
 
         detalleNombre.textContent =
             "Producto no encontrado";
 
-        document.getElementById("detalle-descripcion").textContent =
+
+        document.getElementById(
+            "detalle-descripcion"
+        ).textContent =
             "No pudimos encontrar el producto seleccionado.";
 
-        document.getElementById("boton-detalle-carrito").style.display =
+
+        document.getElementById(
+            "boton-detalle-carrito"
+        ).style.display =
             "none";
+
     }
 
 }
