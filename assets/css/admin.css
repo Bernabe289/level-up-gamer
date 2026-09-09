@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+
+
+/* Base */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #050505;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+p {
+    margin-top: 0;
+}
+
+
+/* Layout */
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* Menú vertical */
+
+.admin-menu {
+    width: 240px;
+    flex-shrink: 0;
+
+    background-color: #0a0a0a;
+    border-right: 1px solid #343a40;
+
+    padding: 30px 20px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.admin-logo {
+    display: flex;
+    flex-direction: column;
+
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+
+    margin-bottom: 45px;
+}
+
+
+.admin-logo span {
+    font-size: 22px;
+    line-height: 22px;
+}
+
+
+.admin-logo small {
+    color: #39ff14;
+    letter-spacing: 4px;
+    font-size: 11px;
+}
+
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    flex-grow: 1;
+}
+
+
+.admin-nav a {
+    padding: 12px 14px;
+    border-radius: 5px;
+
+    color: #d6d6d6;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+
+.admin-nav a:hover {
+    background-color: #111416;
+    color: #ffffff;
+}
+
+
+.admin-nav a.activo {
+    background-color: #133917;
+    color: #39ff14;
+}
+
+
+.admin-volver {
+    padding-top: 20px;
+    border-top: 1px solid #343a40;
+
+    color: #a3a8ac;
+    font-size: 13px;
+}
+
+
+.admin-volver:hover {
+    color: #97fd85;
+}
+
+
+/* Contenido */
+
+.admin-contenido {
+    flex-grow: 1;
+    padding: 45px 50px;
+}
+
+
+.admin-encabezado {
+    margin-bottom: 35px;
+}
+
+
+.admin-etiqueta {
+    color: #39ff14;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+
+.admin-encabezado h1 {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+
+.admin-encabezado > p:last-child {
+    color: #b7b7b7;
+    margin-bottom: 0;
+}
+
+
+/* Tarjetas resumen */
+
+.admin-resumen {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.admin-tarjeta {
+    background-color: #111416;
+    border: 1px solid #343a40;
+    border-radius: 8px;
+
+    padding: 25px 30px;
+
+    min-width: 180px;
+}
+
+
+.admin-tarjeta-numero {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #39ff14;
+
+    margin-bottom: 5px;
+}
+
+
+.admin-tarjeta-texto {
+    color: #b7b7b7;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+
+/* Responsive */
+
+@media (max-width: 800px) {
+
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .admin-menu {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #343a40;
+    }
+
+    .admin-contenido {
+        padding: 30px 20px;
+    }
+
+}

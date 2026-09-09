@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Panel Admin - Level-Up Gamer</title>
+
+    <link
+        rel="stylesheet"
+        href="../assets/css/admin.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <aside class="admin-menu">
+
+            <a
+                href="index.html"
+                class="admin-logo">
+
+                <span>LEVEL-UP</span>
+                <small>ADMIN</small>
+
+            </a>
+
+
+            <nav class="admin-nav">
+
+                <a
+                    href="index.html"
+                    class="activo">
+
+                    Inicio
+
+                </a>
+
+                <a href="productos.html">
+                    Productos
+                </a>
+
+                <a href="usuarios.html">
+                    Usuarios
+                </a>
+
+            </nav>
+
+
+            <a
+                href="../index.html"
+                class="admin-volver">
+
+                ← Volver a la tienda
+
+            </a>
+
+        </aside>
+
+
+        <main class="admin-contenido">
+
+            <div class="admin-encabezado">
+
+                <p class="admin-etiqueta">
+                    PANEL DE ADMINISTRACIÓN
+                </p>
+
+                <h1>
+                    Hola,
+                    <span id="nombre-admin">
+                        Administrador
+                    </span>
+                </h1>
+
+                <p>
+                    Desde acá gestionas los productos y usuarios de Level-Up Gamer.
+                </p>
+
+            </div>
+
+
+            <div class="admin-resumen">
+
+                <article class="admin-tarjeta">
+
+                    <p
+                        class="admin-tarjeta-numero"
+                        id="total-productos">
+
+                        0
+
+                    </p>
+
+                    <p class="admin-tarjeta-texto">
+                        Productos
+                    </p>
+
+                </article>
+
+
+                <article class="admin-tarjeta">
+
+                    <p
+                        class="admin-tarjeta-numero"
+                        id="total-usuarios">
+
+                        0
+
+                    </p>
+
+                    <p class="admin-tarjeta-texto">
+                        Usuarios registrados
+                    </p>
+
+                </article>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <script src="../assets/js/productos.js"></script>
+    <script src="../assets/js/admin.js"></script>
+
+</body>
+
+</html>
