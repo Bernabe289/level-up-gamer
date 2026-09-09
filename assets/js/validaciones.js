@@ -1098,3 +1098,51 @@ if (formularioContacto) {
     );
 
 }
+
+/* Creacion de usuario admin
+
+let usuariosIniciales =
+    JSON.parse(
+        localStorage.getItem("usuariosLevelUp")
+    ) || [];
+
+
+const existeAdministrador =
+    usuariosIniciales.find(function(usuario) {
+
+        return usuario.tipo === "Administrador";
+
+    });
+
+
+if (!existeAdministrador) {
+
+    usuariosIniciales.push({
+        run: "111111111",
+        nombre: "Administrador",
+        apellidos: "Level-Up",
+        correo: "admin@duoc.cl",
+        contrasena: "1234",
+        fechaNacimiento: "2000-01-01",
+        region: "Metropolitana de Santiago",
+        comuna: "Santiago",
+        direccion: "Level-Up Gamer",
+        tipo: "Administrador"
+    });
+
+
+    localStorage.setItem(
+        "usuariosLevelUp",
+        JSON.stringify(usuariosIniciales)
+    );
+
+}
+
+
+
+
+
+
+
+
+*/
